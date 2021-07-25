@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    function * loop () {
+      for(let i =0; i< 5;i++) {
+        yield console.log(i)
+      }
+    }
+    const l = loop()
+    l.next() // 0
+    l.next() // 1
+    l.next() // 2
+    l.next() // 3
+    l.next() // 4
+    l.next() //没有值
+    l.next() //没有值
+    */
+
+
+
+/*    function * gen () {
+     let val
+     val = yield 1
+     console.log(val)
+   }
+   const l = gen()
+   l.next()  
+   l.next() //undefined   
+   
+   */
+
+
+   // next 当前遍历的对象的值是什么  我的循环是否结束
+
+   // yield 没有返回值
+
+ /*   function * gen () {
+     let val
+     val = yield * [1, 2, 3] //yield加*号表示后面是一个遍历的对象，可迭代的对象，yield * 后面可以嵌套一个Generator对象
+     console.log(val)
+   }
+
+   const l = gen()
+   console.log(l.next()) //{value: 1, done: false}
+   console.log(l.next()) //{value: 2, done: false} */
+
+
+
+   /*
+   
+  
+   function * gen () {
+     let val
+     val = yield [1, 2, 3] 
+     console.log(val) //这里输出 20 是next从传过来的
+   }
+
+   const l = gen()
+   console.log(l.next(10)) 
+
+   // l.return(100) // 提前终止控制流程 就像for循环的break 可以传参影响最终的value
+
+   console.log(l.next(20))  //yield本身没有返回值 20表示修改yield的返回值
+    */
+
+
+
+
+
+
+   function * gen () {
+     while (true) {
+       try {
+         yield 1
+       } catch (e) {
+         console.log(e.message)
+       }
+     }
+   }
+
+   const g = gen()
+   console.log(g.next())
+   console.log(g.next())
+   console.log(g.next())
+   g.throw(new Error('ss'))
+   console.log(g.next()) //继续执行 没有受到影响
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let o = {
+      name: 'xiaoming',
+      price: 190
+    }
+
+    //revocable 可废止的 可撤回的
+    // d现在不是单纯的被代理信息，想拿到被代理的信息，需要d.proxy属性 撤销操作
+
+    let d = Proxy.revocable(o, {
+      get(target, key) {
+        if (key === 'price') {
+          return target[key] + 20
+        } else {
+          return target[key]
+        }
+      }
+    })
+
+    console.log(d.proxy.price)
+    setTimeout(function () {
+      d.revoke() //撤销代理权
+      setTimeout(function() {
+        console.log(d.proxy.price)
+      })
+    }, 1000)
+  </script>
+</body>
+
+</html>

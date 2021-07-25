@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let s = new Set();
+    let s1 = new Set([1, 2, 3, 4])
+    console.log(s1 instanceof Object)
+
+    // 添加数据
+    s.add('hello').add('goodbye').add('hello')
+   
+    console.log(s.has('hello'),s.size)
+
+    //读 key value
+    console.log(s.keys())
+    console.log(s.values())
+    console.log(s.entries()) //键值  拿到key value
+
+    // 删除
+    // s.clear()
+    // s.delete('hello')
+
+
+    s.forEach(item => {
+      console.log(item)
+    })
+    for(let item of s) {
+      console.log(item)
+    }
+    // 如何修改？只能删除了再添加
+
+
+  </script>
+
+</body>
+
+</html>

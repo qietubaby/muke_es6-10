@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+
+<body>
+
+ <script>
+  /*   export const name = 'hello';
+    export var list = [1, 2, 3]
+    import { name, list } from './lesson2-14.mod'
+    console.log(name) */
+
+
+
+  /*
+    const name = 'hello'
+    let addr = 'Beijing'
+    export {
+     name,
+     addr
+    }
+    import { name, list } from './lesson2-14.mod'
+  */
+
+
+
+  /*
+    // 引用和导出要做匹配
+    const name = 'hello'
+    let addr = 'Beijing'
+    export default name
+    export {
+     addr
+    }
+    import name, { list } from './lesson2-14.mod'
+  */
+
+
+  /*
+    // 一个文件只允许一个 export default默认导出
+    //导入把名字改了name2也可以引入name，如果是export default默认导出的允许导入的时候起名字
+    // 花括号中的模块必须知道变量名才能重命名
+    const name = 'hello'
+    let addr = 'Beijing'
+    export default name
+    export {
+     addr
+    }
+    import name2, {addr as addr2} from './lesson2-14.mod'
+
+  */
+
+
+
+  /*   // 导出函数
+    export default function say(content) {
+     console.log(content)
+    }
+    export function run() {
+
+    }
+
+
+    import say, { run } from 'xxx'
+    say('hello word') */
+
+
+
+
+  /*   // 导出函数
+    const say = (content) => {
+     console.log(content)
+    }
+    const run = () => {
+     console.log(123)
+    }
+    export {
+     say,
+     run
+    }
+
+    import  { say,run } from 'xxx'
+    say('hello word') */
+
+
+
+
+
+  /*   //导出对象
+    const data = {
+     code: 1,
+     message: 'success'
+    }
+    const des = {
+     age: 20,
+     addr: 'Beijing'
+    }
+    export default {
+     data,
+     des
+    }
+
+
+
+    import obj from './xx'
+    let { data, des } = obj
+    console.log(data, des) */
+
+
+
+
+  /*
+    // 类导出
+
+    class Test {
+     constructor() {
+      this.id
+     }
+    }
+    export {
+     Test
+    }
+
+    import { Test } from './xx'
+    let test = new Test()
+
+
+
+    //默认导出类
+    export default Test
+    import Test from './xxx'
+
+
+
+
+
+    export default class Test {
+     constructor() {
+      this.id
+     }
+    }
+    import Test from './xxx'
+
+
+
+
+
+    export class Test {
+     constructor() {
+      this.id
+     }
+    }
+    import {Test} from './xxx'
+
+
+
+
+
+    export default class {
+     constructor() {
+      this.id
+     }
+    }
+    import Test from './xxx'
+
+
+
+
+
+
+
+
+
+
+    export class Test {}
+    export class Animal {}
+
+    export default class People {}
+
+    import * as Mod from 'xx'
+
+    let test = new Mod.Test()
+    let animal = new Mod.Animal()
+    let people = new Mod.People()
+
+
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </script>
+
+</body>
+
+</html>

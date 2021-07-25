@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // proxy 代理
+        /* let o = {
+      name: 'xiaoming',
+      price: 190
+    }
+
+    let d = new Proxy(o, {
+      get(target, key) {
+        if(key === 'price') {
+          return target[key] + 20
+        } else {
+          return target[key]
+        }
+      }
+    })
+    
+   console.log(d.price, d.name) */
+
+
+        /* 
+        let o = {
+            name: 'xiaoming',
+            price: 190
+         }
+         let d = new Proxy(o, {
+           get(target, key) {
+             return target[key]
+           },
+           set(target,key,value){
+             return false
+           }
+         })
+         d.price = 300
+         console.log(d.price,d.name) 
+         
+         */
+
+
+        // es5中实现
+        /*
+        for (let [key] of Object.entries(o)) {
+          Object.defineProperty(o, key, {
+            writable: false
+          })
+        }
+        o.price = 300
+        console.log(o.name, o.price)
+        */
+    </script>
+</body>
+
+</html>

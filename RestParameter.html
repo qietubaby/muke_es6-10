@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+
+<body>
+ <script>
+  // es5
+  function sum() {
+   let num = 0
+   // Array.prototype.forEach.call(arguments, function (item) {
+   //  num += item * 1
+   // })
+   Array.prototype.forEach.call(arguments, function (item) {
+    num += item * 1
+   })
+   return num
+  }
+
+  // es6
+  function sum2(...nums) {
+   let num = 0
+   nums.forEach(function (item) {
+    num += item * 1
+   })
+   return num
+  }
+
+  console.log(sum(1, 2, 3, 4))
+ </script>
+</body>
+
+</html>

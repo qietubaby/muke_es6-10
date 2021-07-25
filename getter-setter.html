@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 控制属性有条件的读写
+        class Animal {
+            constructor(type) {
+                this.type = type
+            }
+            get age() { //只读
+                return 4
+            }
+            set age(val) {
+                this.realage = val
+            }
+            eat() {
+                console.log('i am eat food')
+            }
+        }
+        let dog = new Animal('dog')
+        console.log(dog.age) // 4
+        dog.age = 5 
+        console.log(dog.age) //age 还是 4
+
+        console.log('realage---'+dog.realage) //5
+    </script>
+
+    <!-- <script>
+        let _age = 4
+
+        class Animal {
+            constructor(type) {
+                this.type = type
+            }
+            get age() { //只读
+                return _age
+            }
+            set age(val) {
+                if(val < 7 && val > 4) { //做了拦截
+                    _age = val
+                }
+            }
+            eat() {
+                console.log('i am eat food')
+            }
+        }
+        let dog = new Animal('dog')
+        console.log(dog.age) // 4
+        dog.age = 5
+        console.log(dog.age)
+
+    </script> -->
+
+</body>
+
+</html>

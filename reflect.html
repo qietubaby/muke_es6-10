@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+
+<body>
+ <script>
+  // Java的反射机制是再编译阶段不知道是哪个类被加载，而是在运行的时候才加载、执行。
+  let price = 91.5
+  if (price > 100) {
+   price = Math.floor.apply(null, [price])
+  } else {
+   price = Math.ceil.apply(null, [price])
+  }
+  console.log(price)
+
+
+  //使用Reflect可以这样做
+  console.log(Reflect.apply(price > 100 ? Math.floor : Math.ceil, null, [price]))
+
+
+  // 用constrct的机制动态的实例化一个类
+  let d = Reflect.construct(Date, []) //不加参数要加一个空数组
+  console.log(d.getTime())
+
+
+  const student = {}
+  const r = Object.defineProperty(student, 'name', { value: 'Mike' }) //返回对象
+  const s = Reflect.defineProperty(student, 'age', { value: '18' }) //返回 true
+  console.log(r, s)
+
+  const obj = { x: 1, y: 2 }
+  Reflect.deleteProperty(obj, 'x')
+  console.log(ojb)
+
+
+  // 读属性
+  console.log(Reflect.get(obj, 'x'))
+  console.log(Reflect.get([3, 4], 1))
+
+  // Object.freeze(obj) //冻结obj，使obj不可扩展
+ </script>
+
+
+</body>
+
+</html>

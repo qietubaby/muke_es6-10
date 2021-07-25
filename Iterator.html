@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Iterator 如何让复杂的结构可以遍历</title>
+</head>
+
+<body>
+ <script>
+  // 如何使用优雅的拿到 所有的名字？
+  let authors = {
+   allAuthors: {
+    fiction: ['Agla', 'Skks', 'Linda'],
+    scienceFiction: ['Neal', 'Arthru', 'Ribert'],
+    fantasy: ['J.R.Tole', 'J.M.R', 'Terry P.K']
+   },
+   Addres: []
+  }
+
+
+
+  // 这种方式也可以拿到所有的名字，但是不够优雅
+  // let r = []
+  // for (let [, v] of Object.entries(authors.allAuthors)) {
+  //   r = r.concat(v)
+  // }
+  // console.log(r)
+
+
+  // Symbol.iterator 这是一个key
+  // this就是对象本身
+
+  // 基本格式，固定写死的
+  /*   authors[Symbol.iterator] = function () {
+     return {
+      next() {
+       return {
+        done: false, // 用来表述遍历是否结束
+        value: 1 // 当前所遍历的项的值
+       }
+      }
+     }
+    }
+   */
+
+
+  authors[Symbol.iterator] = function () {
+   let allAuthors = this.allAuthors
+   let keys = Reflect.ownKeys(allAuthors) //拿到所有的key值
+   let values = []
+   return {
+    next() {
+     if (!values.length) {
+      if (keys.length) {
+       values = allAuthors[keys[0]]
+       keys.shift()
+      }
+
+     }
+     return {
+      done: !values.length,
+      value: values.shift()
+     }
+    }
+   }
+  }
+
+  console.log(authors)
+
+  let r = []
+  for (let v of authors) {
+   r.push(v)
+  }
+  console.log(r)
+
+ </script>
+
+</body>
+
+</html>

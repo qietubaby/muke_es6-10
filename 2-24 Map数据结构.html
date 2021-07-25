@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Map的key值可以是任意值
+    // 最外层的数组满足可遍历的对象，里面的数组是外面可遍历数组的一个元素[[key,value]]
+   
+    // let map = new Map([[1, 2], [3, 4]])
+    // console.log(map)
+
+
+    let map = new Map()
+    
+    // set既有添加数据的能力，又有修改数据的能力
+    map.set(1,'value-1')
+    map.set(3,'value-4')
+    map.set(1,'value-3')
+
+    // 删除
+    //map.delete(1)
+
+    // 清空
+    //map.clear()
+
+    // 统计
+    //console.log(map.size)
+
+    // 查找
+    //console.log(map.has(2)) //查的是key（索引）值
+
+    // 取值
+    //console.log(map.get(1))
+
+    //console.log(map.keys(), map.values(), map.entries())
+
+    // map.forEach((value,key) => {
+    //   console.log(value,key)
+    // })
+
+    for(let [key,value] of map) {
+      console.log(key,value)
+    }
+
+
+    // 键的类型可以是任意的
+    let o = function() {
+      console.log('o')
+    }
+    map.set(o, 4)
+    console.log(map)
+    console.log(map.get(o))
+
+
+  </script>
+</body>
+
+</html>
