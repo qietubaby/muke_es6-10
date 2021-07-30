@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(type) {
+                this.type = type
+            }
+            eat() {
+                Animal.walk()
+                console.log('i am eat food')
+            }
+            static walk() {
+                console.log('i am eat food')
+            }
+        }
+        class Dog extends Animal {
+            constructor(type) {
+                super(type)
+                this.age = 2
+            }
+        }
+        let dog = new Dog('dog')
+        dog.eat()
+    </script>
+</body>
+</html>
